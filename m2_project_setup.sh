@@ -6,6 +6,7 @@
 # $1 - valid magento OS version
 # $2 - project name (used for folder and host name);
 # $3 - 0/1 install sample data or not
+# example sudo bash m2_project_setup.sh 2.2.1 m221test 0
 
 PROJECTROOT="/var/www/magento2/$2"
 

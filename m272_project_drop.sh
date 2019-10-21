@@ -2,7 +2,6 @@
 #script drops existed m2 instance by removing its folders, database and host entry
 # arguments:
 # $1 - existed project
-# sudo bash m2_project_drop.sh m221test
 
 if [[ -z "$1" ]]
   then
@@ -10,14 +9,14 @@ if [[ -z "$1" ]]
     exit 1
 fi
 
-PROJECTROOT="/var/www/magento2/$1"
+PROJECTROOT="/var/www/magento272/$1"
 
 #delete project folder
 rm -rf $PROJECTROOT
 #delete DB
 mysql -h0.0.0.0 -uadmin -padmin -e "drop database $1"
 #remove host from hosts
-sed -i "/^.*$1.magento2.local/d" /etc/hosts
+sed -i "/^.*$1.magento272.local/d" /etc/hosts
 wait$!
 docker exec -i nginx nginx -s reload
 wait$!
